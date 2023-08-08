@@ -23,7 +23,7 @@ app.post("/Webhook", (req, res) => {
     res.sendStatus(200);
   } else if (req.headers["x-hook-signature"]) {
     const computedSignature = crypto
-      .createHmac("SHA256", secret)
+      .createHmac("AHA256", secret)
       .update(JSON.stringify(req.body))
       .digest("hex");
 
